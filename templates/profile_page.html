@@ -7,19 +7,20 @@
 </head>
 <body>
 
-    <h2>First name {{request.user.first_name}}</h2>
-    <h2>Last name {{request.user.last_name}}</h2>
-    <h2>Email  {{request.user.email}}</h2>
+    <h2>First name {{user.first_name}}</h2>
+    <h2>Last name {{user.last_name}}</h2>
+    <h2>Email  {{user.email}}</h2>
+    <h2>Username  {{user.username}}</h2>
 
-    <h2>Address : {{request.user.profile.address}}</h2>
-    <h2>Phone : {{request.user.profile.phone}}</h2>
+    <h2>Address : {{user.profile.address}}</h2>
+    <h2>Phone : {{user.profile.phone}}</h2>
 
 
     <h1>POSTS</h1>
     <hr>
-    <p>{{request.user.posts.all}}</p>
+    <p>{{posts}}</p>
 
-    {% for post in request.user.posts.all %}
+    {% for post in posts %}
 
         <h3>POST TILE : {{post.title}}</h3>
         <h3>POST CONTENT : {{post.description}}</h3>

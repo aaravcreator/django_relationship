@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<div class="container">
+
+
+    <h1>Posts</h1>
+
+
+    <div class="row">
+
+ 
+        {% for post in posts %}
+
+        <!-- <h3>POST TILE : {{post.title}}</h3>
+        <h3>POST CONTENT : {{post.description}}</h3>
+        <h3>POSTED BY : {{post.user}}</h3>
+        <img src="{{post.image.url}}" alt="{{post.title}}" height="300px">
+        <hr> -->
+
+        <div class="col-lg-3 col-md-4 col-sm-12 p-2">
+            <div class="card">
+                <img src="{{post.image.url}}" class="card-img-top image-banner" alt="{{post.title}}">
+                <div class="card-body">
+                  <h5 class="card-title">{{post.title}}</h5>
+                  <p class="card-text">{{post.description}}</p>
+                  <p class="card-text">Posted by: <strong>{{post.user}}</strong> </p>
+                  <!-- <a href="/view_post/{{post.id}}/" class="btn btn-primary">View Post</a> -->
+                  <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">View Post</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+    
+<style>
+
+
+    .image-banner{
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
+</style>
+    
+
+
+{% endblock content %}
